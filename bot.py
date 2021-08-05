@@ -67,10 +67,10 @@ def prefix(bot, message):
 	if DATABASE_URL and message.guild and any(name in message.content for name in command_names):
 		prefix = db.get_prefix(message.guild.id)
 		if prefix:
-			return prefix
-	return '-'
+			return '+'
+	return '+'
 
-bot = commands.AutoShardedBot(command_prefix=prefix, max_messages=None, activity=discord.Game(name='-help'), help_command=None)
+bot = commands.AutoShardedBot(command_prefix=prefix, max_messages=None, activity=discord.Activity(type=discord.ActivityType.listening, name='my dad shino'), help_command=None)
 
 async def send_internal(msg, channel_id=CHANNEL_ID):
 	print(msg)
